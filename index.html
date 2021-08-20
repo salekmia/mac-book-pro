@@ -47,12 +47,6 @@
                         <button id="delivery-two" class="btn btn-outline-success mb-2">Friday, Aug 21 Delivery clarge $20</button>
                     </div>
 
-                    <!-- Promo Code -->
-                    <div class="my-5 d-flex">
-                        <input class="form-control w-75" type="text">
-                        <button class="btn btn-danger w-25">Apply</button>
-                    </div>
-
                     <!-- Product overview -->
                     <div>
                         <table class="table">
@@ -63,24 +57,30 @@
                               </tr>
                               <tr>
                                 <td>Extra Meromy Cost</td>
-                                <td>$<span>0</span></td>
+                                <td>$<span id="memory-price">0</span></td>
                               </tr>
                               <tr>
                                 <td>Extra Storage Cost</td>
-                                <td>$<span>0</span></td>
+                                <td>$<span id="storage-price">0</span></td>
                               </tr>
                               <tr>
                                 <td>Delivery Charge</td>
-                                <td>$<span>0</span></td>
+                                <td>$<span id="delivery-price">0</span></td>
                               </tr>
                             </tbody>
                             <tfoot>
                                 <tr>
                                   <th scope="col">Total Price</th>
-                                  <th scope="col">$<span>1299</span></th>
+                                  <th scope="col">$<span id="subtotal">1299</span></th>
                                 </tr>
                             </tfoot>
                         </table>
+                    </div>
+
+                    <!-- Promo Code -->
+                    <div class="my-5 d-flex">
+                        <input id="cupon-input" class="form-control w-75" type="text">
+                        <button id="cupon-btn" class="btn btn-danger w-25">Apply</button>
                     </div>
                 </main>
             </div>
@@ -90,7 +90,7 @@
 
         <!-- Total -->
         <footer class="text-center">
-            <h1>Total: $<span>1299</span></h1>
+            <h1>Total: $<span id="total">1299</span></h1>
         </footer>
     </div>
 
