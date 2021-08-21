@@ -1,57 +1,87 @@
-// get price function
-function getPrice(type, price) {
-    const productPrice = document.getElementById(type + '-price')
-    const productPriceNumber = productPrice.innerText
+// get all table price value
+const bestPrice = document.getElementById('best-price')
 
-    const subtotal = document.getElementById('subtotal')
-    const subtotalNumber = subtotal.innerText
+const memoryPrice = document.getElementById('memory-price')
 
-    const total = document.getElementById('total')
-    const totalNumber = total.innerText
-    
-    productPrice.innerText = price
-    subtotal.innerText = parseFloat(subtotalNumber) + price
-    total.innerText = parseFloat(totalNumber) + price
+const storagePrice = document.getElementById('storage-price')
+
+const deliveryPrice = document.getElementById('delivery-price')
+
+const subtotalPrice = document.getElementById('subtotal-price')
+
+const totalPrice = document.getElementById('total-price')
+
+
+
+// subtotal function
+function subtotal(){
+    subtotalPrice.innerText = parseFloat(bestPrice.innerText) + parseFloat(memoryPrice.innerText) + parseFloat(storagePrice.innerText) + parseFloat(deliveryPrice.innerText)
+}
+
+// total function
+function total(){
+   totalPrice.innerText = parseFloat(bestPrice.innerText) + parseFloat(memoryPrice.innerText) + parseFloat(storagePrice.innerText) + parseFloat(deliveryPrice.innerText)
 }
 
 
-// Memory-One event handler
+
+
+// memory button one
 document.getElementById('memory-one').addEventListener('click', function(){
-    getPrice('memory', 0)
+    memoryPrice.innerText = 0
+    subtotal()
+    total()
 })
 
-// Memory-Two event handler
+// memory button two
 document.getElementById('memory-two').addEventListener('click', function(){
-    getPrice('memory', 180)
+    memoryPrice.innerText = 180
+    subtotal()
+    total()
 })
 
-
-
-// storage-one event handler
+// storage button onw
 document.getElementById('storage-one').addEventListener('click', function(){
-    getPrice('storage', 0)
+    storagePrice.innerText = 0
+    subtotal()
+    total()
+
 })
 
-// storage-two event handler
+// storagebutton two 
 document.getElementById('storage-two').addEventListener('click', function(){
-    getPrice('storage', 100)
+    storagePrice.innerText = 100
+    subtotal()
+    total()
+
 })
 
-// storage-three event handler
+// storage button three
 document.getElementById('storage-three').addEventListener('click', function(){
-    getPrice('storage', 180)
+    storagePrice.innerText = 180
+    subtotal()
+    total()
+
 })
 
-
-
-// delivery event handler
+// delivery button one
 document.getElementById('delivery-one').addEventListener('click', function(){
-    getPrice('delivery', 0)
+    deliveryPrice.innerText = 0
+    subtotal()
+    total()
+
 })
 
+// delivery button two
 document.getElementById('delivery-two').addEventListener('click', function(){
-    getPrice('delivery', 20)
+    deliveryPrice.innerText = 20
+    subtotal()
+    total()
+
 })
+
+
+
 
 
 
@@ -60,12 +90,12 @@ document.getElementById('cupon-btn').addEventListener('click', function(){
     const cuponInput = document.getElementById('cupon-input')
     const cuponInputText = cuponInput.value
     const cupon = cuponInputText.toLowerCase()
-    
     if(cupon == 'stevekaku') {
-        const total = document.getElementById('total')
-        const totalNumber = parseFloat(total.innerText)
-        percentage = totalNumber * 20 / 100
-        total.innerText = totalNumber - percentage
+        totalNumber = parseFloat(totalPrice.innerText)
+        const percentage = totalNumber * 20 / 100
+        totalPrice.innerText = totalNumber - percentage
     }
     cuponInput.value = ''
+    
+    
 })
