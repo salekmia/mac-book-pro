@@ -20,9 +20,9 @@ function subtotal(){
 
 // total function
 function total(){
-   totalPrice.innerText = parseFloat(bestPrice.innerText) + parseFloat(memoryPrice.innerText) + parseFloat(storagePrice.innerText) + parseFloat(deliveryPrice.innerText)
+   const totalNumber = totalPrice.innerText = parseFloat(bestPrice.innerText) + parseFloat(memoryPrice.innerText) + parseFloat(storagePrice.innerText) + parseFloat(deliveryPrice.innerText)
+   return totalNumber
 }
-
 
 
 
@@ -40,12 +40,11 @@ document.getElementById('memory-two').addEventListener('click', function(){
     total()
 })
 
-// storage button onw
+// storage button one
 document.getElementById('storage-one').addEventListener('click', function(){
     storagePrice.innerText = 0
     subtotal()
     total()
-
 })
 
 // storagebutton two 
@@ -53,7 +52,6 @@ document.getElementById('storage-two').addEventListener('click', function(){
     storagePrice.innerText = 100
     subtotal()
     total()
-
 })
 
 // storage button three
@@ -61,7 +59,6 @@ document.getElementById('storage-three').addEventListener('click', function(){
     storagePrice.innerText = 180
     subtotal()
     total()
-
 })
 
 // delivery button one
@@ -69,7 +66,6 @@ document.getElementById('delivery-one').addEventListener('click', function(){
     deliveryPrice.innerText = 0
     subtotal()
     total()
-
 })
 
 // delivery button two
@@ -77,11 +73,7 @@ document.getElementById('delivery-two').addEventListener('click', function(){
     deliveryPrice.innerText = 20
     subtotal()
     total()
-
 })
-
-
-
 
 
 
@@ -90,12 +82,10 @@ document.getElementById('cupon-btn').addEventListener('click', function(){
     const cuponInput = document.getElementById('cupon-input')
     const cuponInputText = cuponInput.value
     const cupon = cuponInputText.toLowerCase()
+
     if(cupon == 'stevekaku') {
-        totalNumber = parseFloat(totalPrice.innerText)
-        const percentage = totalNumber * 20 / 100
-        totalPrice.innerText = totalNumber - percentage
+        const savings = (total() * 20) / 100
+        totalPrice.innerText = total() - savings
     }
     cuponInput.value = ''
-    
-    
 })
